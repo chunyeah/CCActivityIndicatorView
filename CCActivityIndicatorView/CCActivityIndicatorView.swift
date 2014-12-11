@@ -99,6 +99,7 @@ func DegreesToRadians (value: Double) -> Double {
         self.animating = false
         
         self.layer.removeAnimationForKey("contents")
+        self.layer.contents = Config.CCActivityIndicatorViewFrameImage(0, UIScreen.mainScreen().nativeScale).CGImage
         
         if self.hidesWhenStopped {
             self.hidden = true
@@ -118,7 +119,6 @@ func DegreesToRadians (value: Double) -> Double {
     override init(frame: CGRect) {
         super.init(frame: CGRectZero)
         self.backgroundColor = UIColor.clearColor()
-        self.hidesWhenStopped = true
         self.startAnimating()
     }
     
