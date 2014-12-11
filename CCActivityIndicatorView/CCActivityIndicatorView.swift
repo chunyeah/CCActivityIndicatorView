@@ -75,8 +75,8 @@ func DegreesToRadians (value: Double) -> Double {
             self.hidden = false
             let animationDuration: CFTimeInterval = 0.8
             var animationImages = [CGImageRef]()
-            
-            for frame in 1...8 {
+
+            for frame in 1...Config.CC_ACTIVITY_INDICATOR_VIEW_NUMBEROFFRAMES {
                 animationImages.append(Config.CCActivityIndicatorViewFrameImage(frame, UIScreen.mainScreen().nativeScale).CGImage)
             }
             
@@ -140,6 +140,8 @@ func DegreesToRadians (value: Double) -> Double {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
+        
         if self.layer.bounds.size.width != Config.CC_ACTIVITY_INDICATOR_VIEW_WIDTH {
             self.layer.bounds = CGRectMake(0, 0, Config.CC_ACTIVITY_INDICATOR_VIEW_WIDTH, Config.CC_ACTIVITY_INDICATOR_VIEW_WIDTH)
         }
